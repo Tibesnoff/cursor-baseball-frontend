@@ -1,105 +1,69 @@
-# Baseball Stats Frontend
+# React + TypeScript + Vite
 
-React-based frontend application for displaying baseball statistics and data.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Overview
+Currently, two official plugins are available:
 
-This is the frontend application for the Baseball Stats project, built with React, TypeScript, and Vite.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Features
+## Expanding the ESLint configuration
 
-- Modern React with TypeScript
-- Vite for fast development and building
-- ESLint and Prettier for code quality
-- Responsive design
-- Real-time baseball statistics
-- Player and team data visualization
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Getting Started
+```js
+export default tseslint.config([
+  globalIgnores(["dist"]),
+  {
+    files: ["**/*.{ts,tsx}"],
+    extends: [
+      // Other configs...
 
-1. Install dependencies:
-   ```bash
-   yarn install
-   ```
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-2. Start the development server:
-   ```bash
-   yarn dev
-   ```
-
-3. Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-## Tech Stack
-
-- **React 19** - UI framework
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **ESLint** - Code linting
-- **Prettier** - Code formatting
-- **Yarn** - Package manager
-
-## Project Structure
-
-```
-src/
-├── components/     # Reusable UI components
-├── pages/         # Page components
-├── hooks/         # Custom React hooks
-├── services/      # API service calls
-├── types/         # TypeScript type definitions
-├── utils/         # Utility functions
-├── styles/        # Global styles and themes
-├── App.tsx        # Main App component
-└── main.tsx       # Entry point
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+]);
 ```
 
-## Available Scripts
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-- `yarn dev` - Start development server
-- `yarn build` - Build for production
-- `yarn lint` - Run ESLint
-- `yarn lint:fix` - Fix ESLint issues
-- `yarn format` - Format code with Prettier
-- `yarn format:check` - Check code formatting
-- `yarn type-check` - Run TypeScript type checking
-- `yarn preview` - Preview production build
+```js
+// eslint.config.js
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
-## Development
-
-- **Hot Reload**: Automatic reloading during development
-- **TypeScript**: Full type checking
-- **ESLint**: Code linting with React and TypeScript rules
-- **Prettier**: Code formatting
-
-## Building for Production
-
-```bash
-yarn build
+export default tseslint.config([
+  globalIgnores(["dist"]),
+  {
+    files: ["**/*.{ts,tsx}"],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs["recommended-typescript"],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+]);
 ```
-
-The built files will be in the `dist` directory.
-
-## Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-VITE_API_URL=http://localhost:3001/api
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests and linting:
-   ```bash
-   yarn lint
-   yarn format:check
-   yarn type-check
-   ```
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License.

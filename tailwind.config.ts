@@ -1,0 +1,153 @@
+import type { Config } from "tailwindcss";
+
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      // Use CSS custom properties from our theme.css as the single source of truth
+      colors: {
+        // Primary Baseball Colors
+        "baseball-blue": "var(--color-baseball-blue)",
+        "baseball-red": "var(--color-baseball-red)",
+        "baseball-white": "var(--color-baseball-white)",
+        "baseball-cream": "var(--color-baseball-cream)",
+        "baseball-navy": "var(--color-baseball-navy)",
+
+        // Semantic Colors
+        primary: {
+          DEFAULT: "var(--color-primary)",
+          hover: "var(--color-primary-hover)",
+          active: "var(--color-primary-active)",
+          light: "var(--color-primary-light)",
+          dark: "var(--color-primary-dark)",
+        },
+        secondary: {
+          DEFAULT: "var(--color-secondary)",
+          hover: "var(--color-secondary-hover)",
+          active: "var(--color-secondary-active)",
+          light: "var(--color-secondary-light)",
+          dark: "var(--color-secondary-dark)",
+        },
+        background: {
+          DEFAULT: "var(--color-background)",
+          elevated: "var(--color-background-elevated)",
+          muted: "var(--color-background-muted)",
+        },
+        text: {
+          primary: "var(--color-text-primary)",
+          secondary: "var(--color-text-secondary)",
+          muted: "var(--color-text-muted)",
+          inverse: "var(--color-text-inverse)",
+        },
+        border: {
+          DEFAULT: "var(--color-border)",
+          light: "var(--color-border-light)",
+          dark: "var(--color-border-dark)",
+        },
+        // Status Colors
+        success: "var(--color-success)",
+        warning: "var(--color-warning)",
+        error: "var(--color-error)",
+        info: "var(--color-info)",
+        // Baseball Specific
+        "field-green": "var(--color-field-green)",
+        "dirt-brown": "var(--color-dirt-brown)",
+        "foul-line": "var(--color-foul-line)",
+        "home-plate": "var(--color-home-plate)",
+        bases: "var(--color-bases)",
+        // Stats Colors
+        "batting-avg-high": "var(--color-batting-avg-high)",
+        "batting-avg-medium": "var(--color-batting-avg-medium)",
+        "batting-avg-low": "var(--color-batting-avg-low)",
+        "era-low": "var(--color-era-low)",
+        "era-medium": "var(--color-era-medium)",
+        "era-high": "var(--color-era-high)",
+      },
+      fontFamily: {
+        primary: "var(--font-family-primary)",
+        mono: "var(--font-family-mono)",
+      },
+      fontSize: {
+        xs: "var(--font-size-xs)",
+        sm: "var(--font-size-sm)",
+        base: "var(--font-size-base)",
+        lg: "var(--font-size-lg)",
+        xl: "var(--font-size-xl)",
+        "2xl": "var(--font-size-2xl)",
+        "3xl": "var(--font-size-3xl)",
+        "4xl": "var(--font-size-4xl)",
+        "5xl": "var(--font-size-5xl)",
+      },
+      fontWeight: {
+        light: "var(--font-weight-light)",
+        normal: "var(--font-weight-normal)",
+        medium: "var(--font-weight-medium)",
+        semibold: "var(--font-weight-semibold)",
+        bold: "var(--font-weight-bold)",
+        extrabold: "var(--font-weight-extrabold)",
+      },
+      lineHeight: {
+        tight: "var(--line-height-tight)",
+        normal: "var(--line-height-normal)",
+        relaxed: "var(--line-height-relaxed)",
+      },
+      spacing: {
+        0: "var(--space-0)",
+        1: "var(--space-1)",
+        2: "var(--space-2)",
+        3: "var(--space-3)",
+        4: "var(--space-4)",
+        5: "var(--space-5)",
+        6: "var(--space-6)",
+        8: "var(--space-8)",
+        10: "var(--space-10)",
+        12: "var(--space-12)",
+        16: "var(--space-16)",
+        20: "var(--space-20)",
+        24: "var(--space-24)",
+        32: "var(--space-32)",
+      },
+      borderRadius: {
+        none: "var(--radius-none)",
+        sm: "var(--radius-sm)",
+        DEFAULT: "var(--radius-base)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+        "2xl": "var(--radius-2xl)",
+        full: "var(--radius-full)",
+      },
+      boxShadow: {
+        sm: "var(--shadow-sm)",
+        DEFAULT: "var(--shadow-base)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+        xl: "var(--shadow-xl)",
+        "2xl": "var(--shadow-2xl)",
+      },
+      transitionDuration: {
+        fast: "var(--transition-fast)",
+        DEFAULT: "var(--transition-base)",
+        slow: "var(--transition-slow)",
+      },
+      zIndex: {
+        dropdown: "var(--z-dropdown)",
+        sticky: "var(--z-sticky)",
+        fixed: "var(--z-fixed)",
+        "modal-backdrop": "var(--z-modal-backdrop)",
+        modal: "var(--z-modal)",
+        popover: "var(--z-popover)",
+        tooltip: "var(--z-tooltip)",
+        toast: "var(--z-toast)",
+      },
+      screens: {
+        sm: "var(--breakpoint-sm)",
+        md: "var(--breakpoint-md)",
+        lg: "var(--breakpoint-lg)",
+        xl: "var(--breakpoint-xl)",
+        "2xl": "var(--breakpoint-2xl)",
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config;
